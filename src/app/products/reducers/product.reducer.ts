@@ -4,7 +4,7 @@ import {
   loadProducts,
 } from '../actions/products.actions';
 
-export const productFeatureKey = 'product';
+export const productFeatureKey = 'Products';
 
 export interface ProductState {
   loading: boolean;

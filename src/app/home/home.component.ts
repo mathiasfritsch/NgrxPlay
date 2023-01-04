@@ -17,7 +17,8 @@ import {
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent {
-  userLoaded$ = this.store.select((state) => state);
+  userLoaded$ = this.store.select(selectUserLoaded);
+  productLoaded$ = this.store.select(selectProductLoaded);
 
   constructor(private store: Store<AppState>) {
     this.store.dispatch(loadUsers());

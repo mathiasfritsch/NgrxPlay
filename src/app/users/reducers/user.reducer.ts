@@ -1,7 +1,7 @@
 import { Action, createReducer, on } from '@ngrx/store';
 import { loadUsers, loadUsersFinished } from '../actions/users.actions';
 
-export const userFeatureKey = 'user';
+export const userFeatureKey = 'Users';
 
 export interface UserState {
   loading: boolean;

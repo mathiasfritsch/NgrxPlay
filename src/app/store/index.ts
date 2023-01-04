@@ -9,20 +9,22 @@ import {
 import {
   ProductState,
   reducer as ProductReducer,
+  productFeatureKey,
 } from '../products/reducers/product.reducer';
 import {
   UserState,
   reducer as UserReducer,
+  userFeatureKey,
 } from '../users/reducers/user.reducer';
 
 export interface AppState {
-  UserState: UserState;
-  ProductState: ProductState;
+  [userFeatureKey]: UserState;
+  [productFeatureKey]: ProductState;
 }
 
 export const reducers: ActionReducerMap<AppState> = {
-  UserState: UserReducer,
-  ProductState: ProductReducer,
+  [userFeatureKey]: UserReducer,
+  [productFeatureKey]: ProductReducer,
 };
 
 export const metaReducers: MetaReducer<AppState>[] = isDevMode() ? [] : [];
