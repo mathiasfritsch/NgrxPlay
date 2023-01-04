@@ -9,14 +9,14 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { EffectsModule } from '@ngrx/effects';
 import { AppEffects } from './app.effects';
 import { HomeComponent } from './home/home.component';
-import { reducer } from './users/reducers/user.reducer';
-
+import { reducer as userReducer } from './users/reducers/user.reducer';
+import { reducer as productReducer } from './products/reducers/product.reducer';
 @NgModule({
   declarations: [AppComponent, HomeComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    StoreModule.forRoot({ users: reducer }),
+    StoreModule.forRoot({ users: userReducer, products: productReducer }),
     true ? StoreDevtoolsModule.instrument() : [],
     EffectsModule.forRoot([AppEffects]),
   ],
