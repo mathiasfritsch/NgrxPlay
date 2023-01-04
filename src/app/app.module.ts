@@ -11,6 +11,7 @@ import { AppEffects } from './app.effects';
 import { HomeComponent } from './home/home.component';
 import { reducer as userReducer } from './users/reducers/user.reducer';
 import { reducer as productReducer } from './products/reducers/product.reducer';
+import { UserEffects } from './users/effects/user.effects';
 @NgModule({
   declarations: [AppComponent, HomeComponent],
   imports: [
@@ -19,6 +20,7 @@ import { reducer as productReducer } from './products/reducers/product.reducer';
     StoreModule.forRoot({ users: userReducer, products: productReducer }),
     true ? StoreDevtoolsModule.instrument() : [],
     EffectsModule.forRoot([AppEffects]),
+    EffectsModule.forFeature([UserEffects]),
   ],
   providers: [],
   bootstrap: [AppComponent],
