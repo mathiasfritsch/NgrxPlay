@@ -1,5 +1,9 @@
 import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
+import {
+  loadProducts,
+  loadProductsFinished,
+} from '../products/actions/products.actions';
 import { AppState } from '../store';
 import { loadUsers, loadUsersFinished } from '../users/actions/users.actions';
 
@@ -12,7 +16,16 @@ export class HomeComponent {
   constructor(private store: Store<AppState>) {
     this.store.dispatch(loadUsers());
   }
-  finished() {
+  finishedUser() {
     this.store.dispatch(loadUsersFinished());
+  }
+  startedUser() {
+    this.store.dispatch(loadUsers());
+  }
+  finishedProduct() {
+    this.store.dispatch(loadProductsFinished());
+  }
+  startedProduct() {
+    this.store.dispatch(loadProducts());
   }
 }
