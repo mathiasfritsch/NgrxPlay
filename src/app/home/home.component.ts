@@ -1,18 +1,24 @@
 import { Component } from '@angular/core';
-import { Store } from '@ngrx/store';
+import { select, Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
 import {
   loadProducts,
   loadProductsFinished,
 } from '../products/actions/products.actions';
 import { AppState } from '../store';
 import { loadUsers, loadUsersFinished } from '../users/actions/users.actions';
-
+import {
+  selectUserLoaded,
+  selectProductLoaded,
+} from '../users/selectors/user.selectors';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent {
+  userLoaded$ = this.store.select((state) => state);
+
   constructor(private store: Store<AppState>) {
     this.store.dispatch(loadUsers());
   }
