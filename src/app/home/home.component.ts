@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
+import { increaseCounter } from '../lessons/actions/lesson.actions';
 import {
   loadProducts,
   loadProductsFinished,
@@ -27,6 +28,7 @@ export class HomeComponent {
     this.store.dispatch(loadUsersFinished());
   }
   startedUser() {
+    this.store.dispatch(increaseCounter());
     this.store.dispatch(loadUsers());
   }
   finishedProduct() {
